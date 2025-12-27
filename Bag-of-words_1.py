@@ -6,6 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report
+import spacy
 
 
 
@@ -17,8 +18,6 @@ train = df["Message"]
 target = df["spam"]
 
 Xtrain ,Xtest , ytrain ,ytest  = train_test_split(train,target , test_size=0.2)
-
-
 
 pipe =Pipeline([("vectorizer",CountVectorizer()),
                 ("model", MultinomialNB())])
